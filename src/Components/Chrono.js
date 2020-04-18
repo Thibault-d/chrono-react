@@ -21,13 +21,9 @@ class Chrono extends Component {
     if (this.state.running === true){ // if a Chrono is running already
       alert("Error, please stop/reset current Chrono before starting a new one!")
     } else if(this.state.running === false && this.state.paused > 0){ // if Chrono was paused, take the value before the pause
-      this.setState({
-        seconds: this.state.paused
-      })
+      this.setState({seconds: this.state.paused})
       this.timer()
-    } else { // if Chrono isn't running and wasn't paused before
-      this.timer()
-    }
+    } else {this.timer()} // if Chrono isn't running and wasn't paused before
 
   };
 
@@ -48,8 +44,6 @@ class Chrono extends Component {
       paused: null
     })
   }
-
-
 
   render() {
     return (
